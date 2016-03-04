@@ -105,6 +105,40 @@ public class DaoImpl implements Dao {
 			
 		}
 	}
+
+	@Override
+	public boolean adaugaProdus(Produs produs) {
+		creazaConexiuneaLaDB();
+		try {
+			
+			String query = "insert into prod values(?, ?, ?, ?, ?);";
+			prepStatement = connection.prepareStatement(query);
+			
+			prepStatement.setInt(1, new Integer(produs.getId().trim()));
+			prepStatement.setString(2, produs.getName().trim());
+			prepStatement.setString(3, produs.getColor().trim());
+			prepStatement.setInt(4, new Integer(produs.getPrice().trim()));
+			prepStatement.setInt(5, new Integer(produs.getStoc().trim()));
+			
+			prepStatement.executeUpdate();
+
+			inchideResursele();
+			
+		} catch (SQLException e) {
+			System.out.println("Nu s-a putut crea obiectul statement"
+					+ " sau nu s-a executat query-ul.");
+			e.printStackTrace();
+			return false;
+		} catch (NullPointerException npe) {
+			System.out.println("Nu s-a creat conexiunea la baza de date in adaugaProdus");
+			npe.printStackTrace();
+			return false;
+		} finally {
+			inchideResursele();
+		}
+		
+		return true;
+	}
 	
 	
 

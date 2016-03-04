@@ -35,7 +35,7 @@
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="thumbnail">
-					<img class="img-responsive img-rounded" src="" style="max-height:220px">
+					<img class="img-responsive img-rounded" src="http://sweepstakesall.com/8448/uploads/2015/07/kdjfkd.jpg" style="max-height:220px">
 					<div class="caption">
 						<h3>Generic news title about promotions</h3>
         				<p>Lorem ipsum ... .....</p>
